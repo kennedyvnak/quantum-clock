@@ -24,6 +24,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "ToggleLantern",
+                    "type": "Button",
+                    "id": "c6c32eb5-54b4-4d8a-a08f-da8930d08f65",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "dd4b110c-dc3e-4ba3-8d3a-34e31baa27a2",
@@ -231,7 +240,7 @@
                 {
                     "name": "",
                     "id": "c0301843-96ca-48db-9791-e3de9ab9fc62",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -247,6 +256,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CameraClear",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "888ee145-f956-4d57-937a-c839caaf0a7d",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleLantern",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
