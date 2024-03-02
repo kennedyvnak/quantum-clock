@@ -28,13 +28,13 @@ namespace QuantumClock {
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D other) {
-            if (!other.CompareTag("Lantern")) return;
-            ToggleObserver(true, QuantumObserver.Lantern);
+            if (other.CompareTag("Lantern")) ToggleObserver(true, QuantumObserver.Lantern);
+            else if (other.CompareTag("CameraAnchor")) ToggleObserver(true, QuantumObserver.Camera);
         }
 
         protected virtual void OnTriggerExit2D(Collider2D other) {
-            if (!other.CompareTag("Lantern")) return;
-            ToggleObserver(false, QuantumObserver.Lantern);
+            if (other.CompareTag("Lantern")) ToggleObserver(false, QuantumObserver.Lantern);
+            else if (other.CompareTag("CameraAnchor")) ToggleObserver(false, QuantumObserver.Camera);
         }
 
         protected virtual void EVENT_ObserverToggled(bool quantumEnabled) {

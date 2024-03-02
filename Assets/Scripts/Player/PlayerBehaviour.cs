@@ -5,6 +5,7 @@ namespace QuantumClock {
     public class PlayerBehaviour : MonoBehaviour {
         [SerializeField] private float m_MoveSpeed;
         [SerializeField] private Transform m_LightTransform;
+        [SerializeField] private QuantumCamera m_QuantumCamera;
 
         public Rigidbody2D rb { get; private set; }
 
@@ -47,9 +48,13 @@ namespace QuantumClock {
         } 
         
         public void CameraShot(InputAction.CallbackContext ctx) {
+            if (!ctx.performed) return;
+            m_QuantumCamera.TakeShot();
         } 
         
         public void CameraClear(InputAction.CallbackContext ctx) {
+            if (!ctx.performed) return;
+            m_QuantumCamera.Clear();
         } 
     }
 }
