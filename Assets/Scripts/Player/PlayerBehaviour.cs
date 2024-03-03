@@ -24,6 +24,10 @@ namespace QuantumClock {
             Vector3 dir = _mousePos - _mainCamera.WorldToScreenPoint(m_LightTransform.position);
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             m_LightTransform.localRotation = Quaternion.AngleAxis(angle - 90.0f, Vector3.forward);
+
+            if (Keyboard.current.f6Key.wasPressedThisFrame) {
+                ScreenCapture.CaptureScreenshot($"Recordings/GameCapture{System.DateTime.Now:yy-MM-dd HHmmss}.png");
+            }
         }
 
         private void FixedUpdate() {
