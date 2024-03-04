@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5066466778299506636}
   - component: {fileID: 5125362837669530214}
+  - component: {fileID: 7927295233985505268}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -161,6 +162,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &7927295233985505268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048148088710872816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97814b264457a594ab770093033018e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObserverToggled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Dir: 0
+  m_TransitTo: {fileID: 0}
+  m_DoorBlock: {fileID: 2941308170569924934}
+  m_Rendererer: {fileID: 2655181138689019236}
+  m_DoorPrefab: {fileID: 831822770343279960, guid: b85114f0b311ae047897554848d1eba1, type: 3}
+  m_InitWithDoor: 0
 --- !u!1 &2655181138689019236
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +295,7 @@ MonoBehaviour:
   - {x: 0.5, y: -3, z: 0}
   m_ShapePathHash: 1972761877
   m_Mesh: {fileID: 0}
-  m_InstanceId: 93842
+  m_InstanceId: 43386
   m_LocalBounds:
     m_Center: {x: -0.5, y: 0, z: 0}
     m_Extent: {x: 1, y: 3, z: 0}
@@ -286,8 +308,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3931641863883384879}
-  - component: {fileID: 6781842497206437366}
-  - component: {fileID: 2918902472953206012}
   - component: {fileID: 2941308170569924934}
   m_Layer: 0
   m_Name: Passage
@@ -314,53 +334,6 @@ Transform:
   - {fileID: 5066466778299506636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6781842497206437366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3734805416544243571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97814b264457a594ab770093033018e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ObserverToggled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Dir: 0
-  m_TransitTo: {fileID: 0}
-  m_Rendererer: {fileID: 2655181138689019236}
-  m_DoorPrefab: {fileID: 831822770343279960, guid: b85114f0b311ae047897554848d1eba1, type: 3}
-  m_InitWithDoor: 0
---- !u!50 &2918902472953206012
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3734805416544243571}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &2941308170569924934
 BoxCollider2D:
   m_ObjectHideFlags: 0
