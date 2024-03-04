@@ -55,7 +55,7 @@ namespace QuantumClock {
         
         public void CameraShot(InputAction.CallbackContext ctx) {
             if (!ctx.performed) return;
-            m_QuantumCamera.TakeShot();
+            m_QuantumCamera.TakeShot(_lanternActive);
         } 
         
         public void CameraClear(InputAction.CallbackContext ctx) {
