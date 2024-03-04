@@ -5,7 +5,7 @@ namespace QuantumClock {
         [SerializeField] private PassageDirection m_Dir;
         [SerializeField] private PassageController m_TransitTo;
 
-        [SerializeField] private SpriteRenderer m_Rendererer;
+        [SerializeField] private GameObject m_Rendererer;
         [SerializeField] private DoorController m_DoorPrefab;
         [SerializeField] private bool m_InitWithDoor;
 
@@ -21,14 +21,14 @@ namespace QuantumClock {
         public void SetDoor(DoorController door) {
             _currentDoor = door;
             _collider.enabled = false;            
-            m_Rendererer.enabled = false;
+            m_Rendererer.SetActive(false);
         }
 
         public void Transit() {
             _currentDoor.SetPassage(m_TransitTo);
             _currentDoor = null;
             _collider.enabled = true;
-            m_Rendererer.enabled = true;
+            m_Rendererer.SetActive(true);
         }
 
         protected override void EVENT_ObserverToggled(bool quantumEnabled) {
