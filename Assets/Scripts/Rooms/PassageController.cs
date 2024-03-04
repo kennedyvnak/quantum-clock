@@ -29,6 +29,7 @@ namespace QuantumClock {
             _currentDoor = null;
             _collider.enabled = true;
             m_Rendererer.SetActive(true);
+            GameManager.instance.AddClockCount();
         }
 
         protected override void EVENT_ObserverToggled(bool quantumEnabled) {
