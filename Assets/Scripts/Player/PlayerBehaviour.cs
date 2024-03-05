@@ -3,8 +3,14 @@ using UnityEngine.InputSystem;
 
 namespace QuantumClock { 
     public class PlayerBehaviour : MonoBehaviour {
+        private static readonly int s_DirXKey = Animator.StringToHash("DirX");
+        private static readonly int s_DirYKey = Animator.StringToHash("DirY");
+        private static readonly int s_VelocityKey = Animator.StringToHash("Velocity");
+        private static readonly int s_RunningKey = Animator.StringToHash("Running");
+
         [SerializeField] private float m_MoveSpeed;
         [SerializeField] private Transform m_LightTransform;
+        [SerializeField] private Animator m_Anim;
         [SerializeField] private QuantumCamera m_QuantumCamera;
 
         public Rigidbody2D rb { get; private set; }
@@ -25,6 +31,11 @@ namespace QuantumClock {
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             m_LightTransform.localRotation = Quaternion.AngleAxis(angle - 90.0f, Vector3.forward);
 
+            if (dir.magnitude > 0.0f) {
+                m_Anim.SetFloat(s_DirXKey, dir.x);
+                m_Anim.SetFloat(s_DirYKey, dir.y);
+            }
+
 #if UNITY_EDITOR
             if (Keyboard.current.f6Key.wasPressedThisFrame) {
                 ScreenCapture.CaptureScreenshot($"Recordings/GameCapture{System.DateTime.Now:yy-MM-dd HHmmss}.png");
@@ -34,6 +45,7 @@ namespace QuantumClock {
 
         private void FixedUpdate() {
             rb.velocity = _moveInput * m_MoveSpeed;
+            m_Anim.SetFloat(s_VelocityKey, rb.velocity.magnitude);
         }
 
         public void Move(InputAction.CallbackContext ctx) {
