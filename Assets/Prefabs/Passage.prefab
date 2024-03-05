@@ -295,7 +295,7 @@ MonoBehaviour:
   - {x: 0.5, y: -3, z: 0}
   m_ShapePathHash: 1972761877
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43386
+  m_InstanceId: 46246
   m_LocalBounds:
     m_Center: {x: -0.5, y: 0, z: 0}
     m_Extent: {x: 1, y: 3, z: 0}
@@ -309,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3931641863883384879}
   - component: {fileID: 2941308170569924934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Passage
   m_TagString: Untagged
   m_Icon: {fileID: 0}

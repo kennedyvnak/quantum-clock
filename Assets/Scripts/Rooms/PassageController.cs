@@ -23,6 +23,7 @@ namespace QuantumClock {
             _currentDoor = door;
             m_DoorBlock.enabled = false;            
             m_Rendererer.SetActive(false);
+            PathRescaner.Rescan(_collider);
         }
 
         public void Transit() {
@@ -31,6 +32,7 @@ namespace QuantumClock {
             m_DoorBlock.enabled = true;
             m_Rendererer.SetActive(true);
             GameManager.instance.AddClockCount();
+            PathRescaner.Rescan(_collider);
         }
 
         protected override void EVENT_ObserverToggled(bool quantumEnabled) {
