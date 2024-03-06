@@ -9,7 +9,7 @@ namespace QuantumClock {
         private static readonly int s_VelocityKey = Animator.StringToHash("Velocity");
         private static readonly int s_RunningKey = Animator.StringToHash("Running");
 
-        [SerializeField] private float m_MoveSpeed;
+        [SerializeField] private float m_MoveSpeed, m_RunSpeed;
         [SerializeField] private Transform m_LightTransform, m_PlayerLight;
         [SerializeField] private Animator m_Anim;
         [SerializeField] private QuantumCamera m_QuantumCamera;
@@ -17,6 +17,7 @@ namespace QuantumClock {
         public Rigidbody2D rb { get; private set; }
 
         private Vector2 _moveInput;
+        private bool _running;
         private Vector3 _mousePos;
         private Camera _mainCamera;
 
@@ -49,7 +50,7 @@ namespace QuantumClock {
         }
 
         private void FixedUpdate() {
-            rb.velocity = _moveInput * m_MoveSpeed;
+            rb.velocity = _moveInput * (_running ? m_RunSpeed : m_MoveSpeed);
             m_Anim.SetFloat(s_VelocityKey, rb.velocity.magnitude);
         }
 
@@ -62,6 +63,12 @@ namespace QuantumClock {
         public void Move(InputAction.CallbackContext ctx) {
             _moveInput = ctx.ReadValue<Vector2>();
         } 
+
+        public void Run(InputAction.CallbackContext ctx) {
+            if (ctx.performed) _running = true;
+            else if (ctx.canceled) _running = false;
+            m_Anim.SetBool(s_RunningKey, _running);
+        }
         
         public void Point(InputAction.CallbackContext ctx) {
             _mousePos = ctx.ReadValue<Vector2>();
