@@ -48,6 +48,11 @@ namespace QuantumClock {
             m_Anim.SetFloat(s_VelocityKey, rb.velocity.magnitude);
         }
 
+        public void ToggleLantern(bool active) {
+            m_LightTransform.gameObject.SetActive(active);
+            _lanternActive = active;
+        }
+
         public void Move(InputAction.CallbackContext ctx) {
             _moveInput = ctx.ReadValue<Vector2>();
         } 
@@ -58,8 +63,7 @@ namespace QuantumClock {
 
         public void ToggleLantern(InputAction.CallbackContext ctx) {
             if (!ctx.performed) return;
-            m_LightTransform.gameObject.SetActive(!_lanternActive);
-            _lanternActive = !_lanternActive;
+            ToggleLantern(!_lanternActive);
         }
 
         public void Interact(InputAction.CallbackContext ctx) {
