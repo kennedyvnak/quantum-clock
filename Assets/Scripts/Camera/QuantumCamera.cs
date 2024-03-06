@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
@@ -10,8 +11,10 @@ namespace QuantumClock {
         [SerializeField] private Camera m_Camera;
         [SerializeField] private RenderTexture m_ScreenTexture;
         [SerializeField] private Collider2D m_LightCollider;
+        [SerializeField] private CinemachineVirtualCamera m_VCam;
 
         public Texture2D renderedTexture { get; private set; }
+        public CinemachineVirtualCamera vCam => m_VCam;
 
         private GameObject _cameraAnchorObj;
 

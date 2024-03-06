@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -14,7 +15,12 @@ namespace QuantumClock {
         [SerializeField] private Animator m_Anim;
         [SerializeField] private QuantumCamera m_QuantumCamera;
 
+        [SerializeField] private UnityEvent<bool> m_OnLanternToggle;
+
         public Rigidbody2D rb { get; private set; }
+
+        public UnityEvent<bool> onLanternToggle => m_OnLanternToggle;
+        public QuantumCamera quantumCamera => m_QuantumCamera;
 
         private Vector2 _moveInput;
         private bool _running;
@@ -58,6 +64,7 @@ namespace QuantumClock {
             m_LightTransform.gameObject.SetActive(active);
             m_PlayerLight.gameObject.SetActive(!active);
             _lanternActive = active;
+            m_OnLanternToggle.Invoke(active);
         }
 
         public void Move(InputAction.CallbackContext ctx) {
