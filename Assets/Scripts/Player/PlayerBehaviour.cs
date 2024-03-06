@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace QuantumClock { 
     public class PlayerBehaviour : MonoBehaviour {
@@ -9,7 +10,7 @@ namespace QuantumClock {
         private static readonly int s_RunningKey = Animator.StringToHash("Running");
 
         [SerializeField] private float m_MoveSpeed;
-        [SerializeField] private Transform m_LightTransform;
+        [SerializeField] private Transform m_LightTransform, m_PlayerLight;
         [SerializeField] private Animator m_Anim;
         [SerializeField] private QuantumCamera m_QuantumCamera;
 
@@ -24,6 +25,10 @@ namespace QuantumClock {
         private void Awake() {
             rb = GetComponent<Rigidbody2D>();
             _mainCamera = Camera.main;
+        }
+
+        private void Start() {
+            ToggleLantern(true);
         }
 
         private void Update() {
@@ -50,6 +55,7 @@ namespace QuantumClock {
 
         public void ToggleLantern(bool active) {
             m_LightTransform.gameObject.SetActive(active);
+            m_PlayerLight.gameObject.SetActive(!active);
             _lanternActive = active;
         }
 
