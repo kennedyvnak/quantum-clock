@@ -1,43 +1,43 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace QuantumClock { 
     public class PassageController : QuantumObject {
-        [SerializeField] private PassageDirection m_Dir;
         [SerializeField] private PassageController m_TransitTo;
         [SerializeField] private Collider2D m_DoorBlock;
 
         [SerializeField] private GameObject m_Rendererer;
-        [SerializeField] private DoorController m_DoorPrefab;
-        [SerializeField] private bool m_InitWithDoor;
+        [SerializeField] private bool m_InitPassage;
 
-        private DoorController _currentDoor;
+        [SerializeField] private UnityEvent<bool> m_OnBlockChanged;
 
-        public PassageDirection direction => m_Dir;
+        public bool isBlocking { get; private set; }
+        public UnityEvent<bool> onBlockChanged => m_OnBlockChanged;
 
         private void Start() {
-            if (!m_InitWithDoor) return;
-            Instantiate(m_DoorPrefab).SetPassage(this);
+            SetBlocked(!m_InitPassage);
         }
 
-        public void SetDoor(DoorController door) {
-            _currentDoor = door;
-            m_DoorBlock.enabled = false;            
-            m_Rendererer.SetActive(false);
-            PathRescaner.Rescan(_collider);
+        public void SetBlocked(bool blocked) {
+            m_DoorBlock.enabled = blocked;
+            m_Rendererer.SetActive(blocked);
+            isBlocking = blocked;
+
+            PathRescaner.Rescan(m_DoorBlock);
+
+            m_OnBlockChanged?.Invoke(isBlocking);
         }
 
         public void Transit() {
-            _currentDoor.SetPassage(m_TransitTo);
-            _currentDoor = null;
-            m_DoorBlock.enabled = true;
-            m_Rendererer.SetActive(true);
+            m_TransitTo.SetBlocked(false);
+            SetBlocked(true);
+
             GameManager.instance.AddClockCount();
-            PathRescaner.Rescan(_collider);
         }
 
         protected override void EVENT_ObserverToggled(bool quantumEnabled) {
             base.EVENT_ObserverToggled(quantumEnabled);
-            if (quantumEnabled && _currentDoor) 
+            if (quantumEnabled && !isBlocking) 
                 Transit();
         }
     }

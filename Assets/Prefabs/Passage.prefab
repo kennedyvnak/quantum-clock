@@ -177,12 +177,13 @@ MonoBehaviour:
   m_ObserverToggled:
     m_PersistentCalls:
       m_Calls: []
-  m_Dir: 0
   m_TransitTo: {fileID: 0}
   m_DoorBlock: {fileID: 2941308170569924934}
   m_Rendererer: {fileID: 2655181138689019236}
-  m_DoorPrefab: {fileID: 831822770343279960, guid: b85114f0b311ae047897554848d1eba1, type: 3}
-  m_InitWithDoor: 0
+  m_InitPassage: 0
+  m_OnBlockChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2655181138689019236
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +296,7 @@ MonoBehaviour:
   - {x: 0.5, y: -3, z: 0}
   m_ShapePathHash: 1972761877
   m_Mesh: {fileID: 0}
-  m_InstanceId: 57498
+  m_InstanceId: 68938
   m_LocalBounds:
     m_Center: {x: -0.5, y: 0, z: 0}
     m_Extent: {x: 1, y: 3, z: 0}
