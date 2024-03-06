@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lantern
   - CameraAnchor
+  - LevelCamera
   layers:
   - Default
   - TransparentFX
