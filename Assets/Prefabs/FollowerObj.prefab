@@ -111,7 +111,7 @@ MonoBehaviour:
   - {x: 0.43872643, y: -0.65747833, z: 0}
   m_ShapePathHash: -807784363
   m_Mesh: {fileID: 0}
-  m_InstanceId: 31920
+  m_InstanceId: 46260
   m_LocalBounds:
     m_Center: {x: 0, y: -0.47873878, z: 0}
     m_Extent: {x: 0.4431038, y: 0.17873955, z: 0}
@@ -124,8 +124,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8412560612135624953}
-  - component: {fileID: 7667026154949909143}
   - component: {fileID: 2162280803757560702}
+  - component: {fileID: 1924769610116489682}
+  - component: {fileID: 4921223960851030324}
+  - component: {fileID: 6937057952025940562}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -148,33 +150,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5685560098418789219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7667026154949909143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3304464456704276159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40645ad23bac0324da7bbf3264bffef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ObserverToggled:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 430198843521852510}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &2162280803757560702
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -220,6 +195,154 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4375}
   m_EdgeRadius: 0
+--- !u!114 &1924769610116489682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304464456704276159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &4921223960851030324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304464456704276159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff1018922996ea428512a96877d0ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObserverToggled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Ai: {fileID: 430198843521852510}
+  m_MinFollowingTimeKill: 3
+  m_EmissionSource: {fileID: 6937057952025940562}
+  m_EmissionClips:
+  - {fileID: 8300000, guid: baf55b6b6e0f89b43bad87f071fe93b4, type: 3}
+  - {fileID: 8300000, guid: 575e141543265874b94df6f33b07ed84, type: 3}
+  - {fileID: 8300000, guid: 83ba36618d86062498c0d2da48616c7b, type: 3}
+  - {fileID: 8300000, guid: e77135b4a4a7b6d4a8ca87459da0a316, type: 3}
+  m_SoundsDelay: {x: 2.7, y: 4.5}
+--- !u!82 &6937057952025940562
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3304464456704276159}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.7
+  m_Pitch: 0.87
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8812452804561870179
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +417,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8812452804561870179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Script: {fileID: 11500000, guid: cd295cabf11171640a1d03cd1d84b511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
@@ -327,6 +450,9 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+  m_ReachedEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7124324104684266586
 MonoBehaviour:
   m_ObjectHideFlags: 0

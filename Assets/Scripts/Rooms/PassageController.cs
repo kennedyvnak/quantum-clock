@@ -23,7 +23,7 @@ namespace QuantumClock {
             m_Rendererer.SetActive(blocked);
             isBlocking = blocked;
 
-            PathRescaner.Rescan(m_DoorBlock);
+            PathRescaner.Rescan(_collider);
 
             m_OnBlockChanged?.Invoke(isBlocking);
         }

@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5435446114162705379, guid: 376195e8d6b0ea7419356116d3006cae, type: 3}
       propertyPath: m_InstanceId
-      value: -215730
+      value: -41162
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7927295233985505268, guid: 376195e8d6b0ea7419356116d3006cae, type: 3}
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ParentPassage: {fileID: 0}
   m_DoorBlock: {fileID: 2351441228672573966}
+  m_Trigger: {fileID: 5715258401227614510}
   m_Rendererer: {fileID: 3218180691453455916}
 --- !u!61 &2351441228672573966 stripped
 BoxCollider2D:
@@ -93,5 +94,10 @@ BoxCollider2D:
 --- !u!1 &3218180691453455916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2655181138689019236, guid: 376195e8d6b0ea7419356116d3006cae, type: 3}
+  m_PrefabInstance: {fileID: 608090833886569288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &5715258401227614510 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5125362837669530214, guid: 376195e8d6b0ea7419356116d3006cae, type: 3}
   m_PrefabInstance: {fileID: 608090833886569288}
   m_PrefabAsset: {fileID: 0}
