@@ -21,11 +21,13 @@ namespace QuantumClock {
 
         public UnityEvent<bool> onLanternToggle => m_OnLanternToggle;
         public QuantumCamera quantumCamera => m_QuantumCamera;
+        public Vector2 pointerPosition => _mousePos;
 
         private Vector2 _moveInput;
         private bool _running;
         private Vector3 _mousePos;
         private Camera _mainCamera;
+        private Transform _pointer;
 
         private bool _lanternActive = true;
 
@@ -39,6 +41,18 @@ namespace QuantumClock {
         }
 
         private void Update() {
+            if (_pointer) {
+                Vector3 pdir = _pointer.transform.position - m_LightTransform.transform.position;
+                float pangle = Mathf.Atan2(pdir.y, pdir.x) * Mathf.Rad2Deg;
+                m_LightTransform.localRotation = Quaternion.AngleAxis(pangle - 90.0f, Vector3.forward);
+
+                if (pdir.magnitude > 0.0f) {
+                    m_Anim.SetFloat(s_DirXKey, pdir.x);
+                    m_Anim.SetFloat(s_DirYKey, pdir.y);
+                }
+                return;
+            }
+
             Vector3 dir = _mousePos - _mainCamera.WorldToScreenPoint(m_LightTransform.position);
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             m_LightTransform.localRotation = Quaternion.AngleAxis(angle - 90.0f, Vector3.forward);
@@ -65,6 +79,10 @@ namespace QuantumClock {
             m_PlayerLight.gameObject.SetActive(!active);
             _lanternActive = active;
             m_OnLanternToggle.Invoke(active);
+        }
+
+        public void SetPointer(Transform pointer) {
+            _pointer = pointer;
         }
 
         public void Move(InputAction.CallbackContext ctx) {

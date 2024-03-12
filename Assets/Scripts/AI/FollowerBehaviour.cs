@@ -62,7 +62,7 @@ namespace QuantumClock {
             if (_gameOver) return;
             _gameOver = true;
 
-            Debug.Log("Game Over");
+            GameManager.instance.EnemyGameOver(transform);
         }
 
         protected override void EVENT_ObserverToggled(bool quantumEnabled) {
