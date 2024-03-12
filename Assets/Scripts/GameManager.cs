@@ -19,7 +19,6 @@ namespace QuantumClock {
         [SerializeField] private PlayerInput m_PlayerInput;
         [SerializeField] private float m_GameOverDelay;
         [SerializeField] private AudioSource m_GameOverSound;
-        
 
         public static GameManager instance { get; private set; }
 
@@ -29,6 +28,10 @@ namespace QuantumClock {
 
         private void Awake() {
             instance = this;
+        }
+
+        public void TogglePlayerInput(bool enabled) {
+            m_PlayerInput.SwitchCurrentActionMap(enabled ? "Player" : "UI");
         }
 
         public void EnemyGameOver(Transform enemy) {

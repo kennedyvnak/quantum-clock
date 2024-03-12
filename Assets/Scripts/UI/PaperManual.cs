@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace QuantumClock {
     public class PaperManual : MonoBehaviour {
@@ -48,17 +49,21 @@ namespace QuantumClock {
             m_ButtonRight.onClick.AddListener(() => MovePage(1));
 
             ToggleGroup(m_Group, true);
+            GameManager.instance.TogglePlayerInput(false);
             m_PaperSound.Play();
         }
 
         public void MovePage(int idx) {
             _currentPage += idx;
             _currentPage = Mathf.Clamp(_currentPage, 0, _currentData.textData.Length - 1);
+            m_PaperSound.Play();
             UpdateText();
         }
 
         public void CloseScreen() {
             ToggleGroup(m_Group, false);
+            GameManager.instance.TogglePlayerInput(true);
+            m_PaperSound.Play();
         }
 
         private void UpdateText() {
