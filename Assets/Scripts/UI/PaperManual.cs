@@ -18,8 +18,15 @@ namespace QuantumClock {
         [SerializeField] private AudioSource m_PaperSound;
         [SerializeField] private PaperData[] m_Datas;
 
+        public static PaperManual instance { get; private set; }
+
         private int _currentPage;
         private PaperData _currentData;
+        private System.Action _onClose;
+
+        private void Awake() {
+            instance = this;
+        }
 
         private void Start() {
             m_ButtonClose.onClick.AddListener(CloseScreen);
@@ -31,14 +38,15 @@ namespace QuantumClock {
             group.blocksRaycasts = enabled;
         }
 
-        public void ShowData(int dataIdx) {
+        public void ShowData(int dataIdx, System.Action onClose) {
             var data = m_Datas[dataIdx];
-            ShowData(data);
+            ShowData(data, onClose);
         }
 
-        public void ShowData(PaperData data) {
+        public void ShowData(PaperData data, System.Action onClose) {
             _currentPage = 0;
             _currentData = data;
+            _onClose = onClose;
 
             UpdateText();
 
@@ -64,6 +72,7 @@ namespace QuantumClock {
             ToggleGroup(m_Group, false);
             GameManager.instance.TogglePlayerInput(true);
             m_PaperSound.Play();
+            _onClose?.Invoke();
         }
 
         private void UpdateText() {
