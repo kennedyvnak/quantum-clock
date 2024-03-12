@@ -104,7 +104,6 @@ namespace QuantumClock {
             // Beucase the screen is rendered in a 1920x1080 texture need to do this.
             _mousePos.x = _mousePos.x / Screen.width * 1920.0f;
             _mousePos.y = _mousePos.y / Screen.height * 1080.0f;
-            Debug.Log(_mousePos);
         }
 
         public void ToggleLantern(InputAction.CallbackContext ctx) {
