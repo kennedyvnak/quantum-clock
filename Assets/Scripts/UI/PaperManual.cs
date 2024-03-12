@@ -79,6 +79,7 @@ namespace QuantumClock {
             m_SizeFitter.enabled = _currentPage == 0;
             m_Text.text = _currentData.textData[_currentPage];
             m_PageText.text = string.Format(m_PageFormat, _currentPage + 1, _currentData.textData.Length);
+            m_ButtonClose.gameObject.SetActive(_currentPage == _currentData.textData.Length - 1);
         }
     }
 }
