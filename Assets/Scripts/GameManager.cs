@@ -13,6 +13,8 @@ namespace QuantumClock {
 
         public static GameManager instance { get; private set; }
 
+        public PlayerInput playerInput => m_PlayerInput;
+
         private void Awake() {
             instance = this;
         }
