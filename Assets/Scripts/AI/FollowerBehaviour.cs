@@ -35,7 +35,6 @@ namespace QuantumClock {
             ToggleTarget(false);
         }
 
-
         private void Update() {
             if (!moving) return;
             _followingTime += Time.deltaTime;
@@ -68,7 +67,8 @@ namespace QuantumClock {
         protected override void EVENT_ObserverToggled(bool quantumEnabled) {
             base.EVENT_ObserverToggled(quantumEnabled);
             m_Ai.canMove = quantumEnabled;
-            if (!quantumEnabled) _followingTime = 0.0f;
+            if (quantumEnabled) _soundDelay = 0.0f;
+            else _followingTime = 0.0f;
             GameManager.instance.ChromaticAberration();
         }
     }
