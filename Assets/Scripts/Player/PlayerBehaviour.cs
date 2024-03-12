@@ -111,15 +111,13 @@ namespace QuantumClock {
             ToggleLantern(!_lanternActive);
         }
 
-        public void Interact(InputAction.CallbackContext ctx) {
-        } 
-        
         public void CameraShot(InputAction.CallbackContext ctx) {
             if (!ctx.performed || !_hasCamera) return;
             m_QuantumCamera.TakeShot(_lanternActive);
         } 
         
         public void CameraClear(InputAction.CallbackContext ctx) {
-            if (!ctx.performed || !_hasCamera) return; m_QuantumCamera.Clear(); } 
+            if (!ctx.performed || !_hasCamera) return; m_QuantumCamera.Clear(); 
+        } 
     }
 }
