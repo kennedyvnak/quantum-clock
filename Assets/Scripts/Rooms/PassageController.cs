@@ -7,7 +7,7 @@ namespace QuantumClock {
         [SerializeField] private Collider2D m_DoorBlock;
 
         [SerializeField] private GameObject m_Rendererer;
-        [SerializeField] private bool m_InitPassage;
+        [SerializeField] private bool m_InitPassage, m_ToggleBehaviour;
 
         [SerializeField] private UnityEvent<bool> m_OnBlockChanged;
 
@@ -36,6 +36,12 @@ namespace QuantumClock {
 
         protected override void EVENT_ObserverToggled(bool quantumEnabled) {
             base.EVENT_ObserverToggled(quantumEnabled);
+            if (quantumEnabled && m_ToggleBehaviour) {
+                SetBlocked(!isBlocking);
+                GameManager.instance.ChromaticAberration();
+                return;
+            }
+
             if (quantumEnabled && !isBlocking) 
                 Transit();
         }
