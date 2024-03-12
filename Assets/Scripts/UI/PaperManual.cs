@@ -14,6 +14,7 @@ namespace QuantumClock {
         [SerializeField] private string m_PageFormat;
         [SerializeField] private CanvasGroup m_Group;
         [SerializeField] private ContentSizeFitter m_SizeFitter;
+        [SerializeField] private AudioSource m_PaperSound;
         [SerializeField] private PaperData[] m_Datas;
 
         private int _currentPage;
@@ -21,7 +22,6 @@ namespace QuantumClock {
 
         private void Start() {
             m_ButtonClose.onClick.AddListener(CloseScreen);
-            ShowData(0);
         }
 
         public static void ToggleGroup(CanvasGroup group, bool enabled) {
@@ -48,6 +48,7 @@ namespace QuantumClock {
             m_ButtonRight.onClick.AddListener(() => MovePage(1));
 
             ToggleGroup(m_Group, true);
+            m_PaperSound.Play();
         }
 
         public void MovePage(int idx) {

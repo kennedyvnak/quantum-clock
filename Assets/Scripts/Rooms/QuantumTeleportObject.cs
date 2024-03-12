@@ -21,6 +21,8 @@ namespace QuantumClock {
 
             var anchor = m_Anchors[_currentAnchor];
             m_TeleportObject.transform.position = anchor.position;
+
+            GameManager.instance.ChromaticAberration();
         }
     }
 }

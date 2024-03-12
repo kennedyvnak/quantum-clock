@@ -69,6 +69,7 @@ namespace QuantumClock {
             base.EVENT_ObserverToggled(quantumEnabled);
             m_Ai.canMove = quantumEnabled;
             if (!quantumEnabled) _followingTime = 0.0f;
+            GameManager.instance.ChromaticAberration();
         }
     }
 }
