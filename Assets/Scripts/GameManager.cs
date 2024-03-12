@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace QuantumClock {
     public class GameManager : MonoBehaviour {
+        [Header("Game Start")]
+        [SerializeField] private SoundtrackManager m_SoundtrackManager;
+
         [Header("Chromatic")]
         [SerializeField] private Volume m_Volume;
         [SerializeField] private float m_ChromaticDuration;

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 namespace QuantumClock { 
     public class PlayerBehaviour : MonoBehaviour {
@@ -28,6 +27,7 @@ namespace QuantumClock {
         private Vector3 _mousePos;
         private Camera _mainCamera;
         private Transform _pointer;
+        private bool _hasCamera;
 
         private bool _lanternActive = true;
 
@@ -53,7 +53,7 @@ namespace QuantumClock {
                 return;
             }
 
-            Vector3 dir = _mousePos - _mainCamera.WorldToScreenPoint(m_LightTransform.position);
+            Vector3 dir = _mainCamera.ScreenToWorldPoint(_mousePos) - m_LightTransform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             m_LightTransform.localRotation = Quaternion.AngleAxis(angle - 90.0f, Vector3.forward);
 
@@ -81,6 +81,10 @@ namespace QuantumClock {
             m_OnLanternToggle.Invoke(active);
         }
 
+        public void GetCamera() {
+            _hasCamera = true;
+        }
+
         public void SetPointer(Transform pointer) {
             _pointer = pointer;
         }
@@ -97,6 +101,10 @@ namespace QuantumClock {
         
         public void Point(InputAction.CallbackContext ctx) {
             _mousePos = ctx.ReadValue<Vector2>();
+            // Beucase the screen is rendered in a 1920x1080 texture need to do this.
+            _mousePos.x = _mousePos.x / Screen.width * 1920.0f;
+            _mousePos.y = _mousePos.y / Screen.height * 1080.0f;
+            Debug.Log(_mousePos);
         }
 
         public void ToggleLantern(InputAction.CallbackContext ctx) {
@@ -108,13 +116,11 @@ namespace QuantumClock {
         } 
         
         public void CameraShot(InputAction.CallbackContext ctx) {
-            if (!ctx.performed) return;
+            if (!ctx.performed || !_hasCamera) return;
             m_QuantumCamera.TakeShot(_lanternActive);
         } 
         
         public void CameraClear(InputAction.CallbackContext ctx) {
-            if (!ctx.performed) return;
-            m_QuantumCamera.Clear();
-        } 
+            if (!ctx.performed || !_hasCamera) return; m_QuantumCamera.Clear(); } 
     }
 }
