@@ -4,15 +4,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace QuantumClock {
     public class GameManager : MonoBehaviour {
-        [Header("Game Start")]
-        [SerializeField] private SoundtrackManager m_SoundtrackManager;
-        [SerializeField] private Button m_StartButton;
-        [SerializeField] private Image m_BlackImage;
-
         [Header("Chromatic")]
         [SerializeField] private Volume m_Volume;
         [SerializeField] private float m_ChromaticDuration;
@@ -36,10 +30,6 @@ namespace QuantumClock {
             instance = this;
         }
 
-        private void Start() {
-            m_StartButton.onClick.AddListener(StartGame);
-        }
-
         public void TogglePlayerInput(bool enabled) {
             m_PlayerInput.SwitchCurrentActionMap(enabled ? "Player" : "UI");
         }
@@ -57,16 +47,6 @@ namespace QuantumClock {
         public void ChromaticAberration() {
             if (_chromaticCoroutine != null) StopCoroutine(_chromaticCoroutine);
             _chromaticCoroutine = StartCoroutine(ChromaticAberrationCoroutine());
-        }
-
-        private void StartGame() {
-            m_SoundtrackManager.enabled = true;
-            m_StartButton.gameObject.SetActive(false);
-            PaperManual.instance.ShowData(0, ShowPlayer);
-        }
-
-        private void ShowPlayer() {
-            m_BlackImage.enabled = false;
         }
 
         private IEnumerator GameOverCoroutine() {
