@@ -15,6 +15,8 @@ namespace QuantumClock {
 
         protected Collider2D _collider { get; private set; }
         protected QuantumObserver _observerFlags { get; private set; } 
+
+        public UnityEvent<bool> observerToggled => m_ObserverToggled;
         
         protected virtual void Awake() {
             _collider = GetComponent<Collider2D>();
