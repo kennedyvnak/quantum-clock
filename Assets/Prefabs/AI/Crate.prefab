@@ -111,7 +111,7 @@ MonoBehaviour:
   - {x: 0.43872643, y: -0.65747833, z: 0}
   m_ShapePathHash: -807784363
   m_Mesh: {fileID: 0}
-  m_InstanceId: 46260
+  m_InstanceId: 99972
   m_LocalBounds:
     m_Center: {x: 0, y: -0.47873878, z: 0}
     m_Extent: {x: 0.4431038, y: 0.17873955, z: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 6937057952025940562}
   m_Layer: 0
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: Entity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
