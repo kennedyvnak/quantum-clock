@@ -25,6 +25,7 @@ namespace QuantumClock {
         public PlayerInput playerInput => m_PlayerInput;
 
         private Coroutine _chromaticCoroutine;
+        private bool _gameOver;
 
         private void Awake() {
             instance = this;
@@ -35,6 +36,9 @@ namespace QuantumClock {
         }
 
         public void EnemyGameOver(Transform enemy) {
+            if (_gameOver) return;
+            _gameOver = true;
+
             m_PlayerInput.enabled = false;
             m_Pointer.transform.position = enemy.transform.position; 
             m_PlayerBehaviour.SetPointer(m_Pointer);

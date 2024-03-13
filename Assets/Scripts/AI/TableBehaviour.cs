@@ -20,7 +20,6 @@ namespace QuantumClock {
         private float _followingTime = 0.0f;
         private bool _gameOver = false;
         private bool _hasTarget;
-        private Transform _startPoint;
         private AIDestinationSetter _targetSetter;
         private int _anchorIdx;
 
@@ -31,9 +30,6 @@ namespace QuantumClock {
         }
 
         private void Start() {
-            _startPoint = new GameObject("EntryPoint").transform;
-            _startPoint.SetParent(m_Ai.transform.parent);
-            _startPoint.position = transform.position;
             _targetSetter = m_Ai.GetComponent<AIDestinationSetter>();
             ToggleTarget(false);
         }
@@ -53,7 +49,7 @@ namespace QuantumClock {
 
         public void ToggleTarget(bool hasTarget) {
             _hasTarget = hasTarget;
-            _targetSetter.target = hasTarget ? m_Target : _startPoint;
+            _targetSetter.target = hasTarget ? m_Target : m_TableAnchors[_anchorIdx].transform;
         }
 
         public void Teleport() {
@@ -75,9 +71,6 @@ namespace QuantumClock {
         }
 
         private void GameOver() {
-            if (_gameOver) return;
-            _gameOver = true;
-
             GameManager.instance.EnemyGameOver(transform);
         }
 

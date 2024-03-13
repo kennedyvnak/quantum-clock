@@ -58,9 +58,6 @@ namespace QuantumClock {
         }
 
         private void GameOver() {
-            if (_gameOver) return;
-            _gameOver = true;
-
             GameManager.instance.EnemyGameOver(transform);
         }
 
