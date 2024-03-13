@@ -45,5 +45,20 @@ namespace QuantumClock {
             if (quantumEnabled && !isBlocking) 
                 Transit();
         }
+
+        private void OnDrawGizmosSelected() {
+            const int max = 15;
+
+            PassageController passage = this;
+            for (int i = 0; i < max; i++) {
+                if (!passage.m_TransitTo) break;
+                Gizmos.DrawLine(passage.transform.position, passage.m_TransitTo.transform.position);
+                if (passage.m_InitPassage) Gizmos.color = Color.blue;
+                Gizmos.DrawSphere(passage.transform.position, 0.5f - (i * 0.075f));
+                Gizmos.color = Color.white;
+                passage = passage.m_TransitTo;
+                if (passage == this) break;
+            }
+        }
     }
 }

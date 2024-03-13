@@ -53,14 +53,21 @@ namespace QuantumClock {
             _chromaticCoroutine = StartCoroutine(ChromaticAberrationCoroutine(playSound));
         }
 
+        public void RestartGame() {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void INPUT_RestartGame(InputAction.CallbackContext ctx) {
+            if (ctx.performed) RestartGame();
+        }
+
         private IEnumerator GameOverCoroutine() {
             if (_chromaticCoroutine != null) StopCoroutine(_chromaticCoroutine);
             if (!m_Volume.profile.TryGet<ChromaticAberration>(out var chromatic)) yield break;
 
             chromatic.intensity.Override(1.0f);
             yield return new WaitForSeconds(m_GameOverDelay);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            chromatic.intensity.Override(0.0f);
+            RestartGame();
         }
 
         private IEnumerator ChromaticAberrationCoroutine(bool playSound) {
