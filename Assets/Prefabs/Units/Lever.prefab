@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StartOn: 0
   m_Renderer: {fileID: 2858771350748473801}
-  m_SpriteOn: {fileID: 1587936916, guid: 92d31511518f9dfedb99dfec3342c044, type: 3}
-  m_SpriteOff: {fileID: 911690568, guid: 92d31511518f9dfedb99dfec3342c044, type: 3}
+  m_SpriteOn: {fileID: 911690568, guid: 92d31511518f9dfedb99dfec3342c044, type: 3}
+  m_SpriteOff: {fileID: 1587936916, guid: 92d31511518f9dfedb99dfec3342c044, type: 3}
   m_LeverToggled:
     m_PersistentCalls:
       m_Calls: []

@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1424964431361603386, guid: 376195e8d6b0ea7419356116d3006cae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1170710673, guid: 967b6757527bc1a419924b1c1530e7d0, type: 3}
     - target: {fileID: 3734805416544243571, guid: 376195e8d6b0ea7419356116d3006cae, type: 3}
       propertyPath: m_Name
-      value: Wall
+      value: PassageBlocked
       objectReference: {fileID: 0}
     - target: {fileID: 3931641863883384879, guid: 376195e8d6b0ea7419356116d3006cae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8683931137711701437, guid: 376195e8d6b0ea7419356116d3006cae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1170710673, guid: 967b6757527bc1a419924b1c1530e7d0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4385255288395424580, guid: 376195e8d6b0ea7419356116d3006cae, type: 3}

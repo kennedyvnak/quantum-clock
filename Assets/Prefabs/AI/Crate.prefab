@@ -239,7 +239,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Ai: {fileID: 430198843521852510}
-  m_MinFollowingTimeKill: 3
+  m_MinFollowingTimeKill: 1.5
+  m_MinDistanceKill: 2.2
+  m_Target: {fileID: 0}
   m_EmissionSource: {fileID: 6937057952025940562}
   m_EmissionClips:
   - {fileID: 8300000, guid: baf55b6b6e0f89b43bad87f071fe93b4, type: 3}
@@ -443,7 +445,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 1.5
+  slowdownDistance: 1.75
   pickNextWaypointDist: 1
   endReachedDistance: 2
   alwaysDrawGizmos: 0

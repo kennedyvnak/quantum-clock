@@ -4,7 +4,7 @@ using UnityEngine;
 namespace QuantumClock {
     public class FollowerBehaviour : QuantumObject {
         [SerializeField] private FollowerAI m_Ai;
-        [SerializeField] private float m_MinFollowingTimeKill;
+        [SerializeField] private float m_MinFollowingTimeKill, m_MinDistanceKill;
         [SerializeField] private Transform m_Target;
 
         [Header("Sounds" )]
@@ -53,7 +53,7 @@ namespace QuantumClock {
         }
 
         private void EVENT_ReachedEnd() {
-            if (moving && _followingTime >= m_MinFollowingTimeKill && _hasTarget) GameOver();
+            if (moving && _followingTime >= m_MinFollowingTimeKill && _hasTarget && Vector2.Distance(transform.position, m_Target.position) <= m_MinDistanceKill) GameOver();
         }
 
         private void GameOver() {

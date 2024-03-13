@@ -47,7 +47,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.161
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.00029999018, y: -0.00064998865, z: 0}
-    m_Extent: {x: 0.6501, y: 0.74955, z: 0}
+    m_Center: {x: 0.024999976, y: -0.043200016, z: 0}
+    m_Extent: {x: 0.7884, y: 0.9073, z: 0}
   m_PointLightInnerAngle: 39.310547
   m_PointLightOuterAngle: 67.7578
   m_PointLightInnerRadius: 0
@@ -78,10 +78,20 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 0.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: 0, y: -0.25, z: 0}
-  - {x: 0.15, y: 0, z: 0}
-  - {x: 0, y: 0.25, z: 0}
-  - {x: -0.15, y: 0, z: 0}
+  - {x: 0.01842197, y: -0.43943405, z: 0}
+  - {x: 0.18545073, y: -0.44878078, z: 0}
+  - {x: 0.20134968, y: -0.31897497, z: 0}
+  - {x: 0.31477877, y: -0.26752424, z: 0}
+  - {x: 0.25352928, y: -0.14195514, z: 0}
+  - {x: 0.29453528, y: 0.0052542686, z: 0}
+  - {x: 0.23430121, y: 0.3295262, z: 0}
+  - {x: 0.015828371, y: 0.36471367, z: 0}
+  - {x: -0.20777975, y: 0.32459116, z: 0}
+  - {x: -0.26343164, y: 0.014854193, z: 0}
+  - {x: -0.15908448, y: -0.13050032, z: 0}
+  - {x: -0.25261992, y: -0.2632289, z: 0}
+  - {x: -0.1355601, y: -0.32957888, z: 0}
+  - {x: -0.12015609, y: -0.45188284, z: 0}
 --- !u!1 &2776770768783075820
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2776770768783075820}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -356,7 +366,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.161
+  m_FalloffIntensity: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
@@ -375,8 +385,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0008999109, y: 1.6250501, z: 0}
-    m_Extent: {x: 2.1981, y: 2.37285, z: 0}
+    m_Center: {x: -0.05489993, y: 1.69985, z: 0}
+    m_Extent: {x: 4.1179, y: 4.72995, z: 0}
   m_PointLightInnerAngle: 39.310547
   m_PointLightOuterAngle: 67.7578
   m_PointLightInnerRadius: 0
@@ -384,13 +394,32 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffSize: 2.78
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: 0, y: -0.25, z: 0}
-  - {x: 1.7, y: 3, z: 0}
-  - {x: 0, y: 3.5, z: 0}
-  - {x: -1.7, y: 3, z: 0}
+  - {x: 0.595327, y: 0.47356272, z: 0}
+  - {x: 0.97629094, y: 1.2926477, z: 0}
+  - {x: 1.1946254, y: 2.0449996, z: 0}
+  - {x: 1.2823732, y: 2.5508752, z: 0}
+  - {x: 1.261125, y: 2.7532303, z: 0}
+  - {x: 1.1692432, y: 2.9840698, z: 0}
+  - {x: 1.0784827, y: 3.1650658, z: 0}
+  - {x: 0.9284117, y: 3.339631, z: 0}
+  - {x: 0.60607326, y: 3.5249197, z: 0}
+  - {x: 0.3128888, y: 3.6211207, z: 0}
+  - {x: 0.0020237863, y: 3.65065, z: 0}
+  - {x: -0.3048969, y: 3.629416, z: 0}
+  - {x: -0.52883655, y: 3.5686255, z: 0}
+  - {x: -0.73840666, y: 3.4729755, z: 0}
+  - {x: -0.95194113, y: 3.3724234, z: 0}
+  - {x: -1.1452794, y: 3.1649742, z: 0}
+  - {x: -1.2801546, y: 2.962803, z: 0}
+  - {x: -1.3494203, y: 2.816019, z: 0}
+  - {x: -1.3920431, y: 2.6379132, z: 0}
+  - {x: -1.3167658, y: 2.0174756, z: 0}
+  - {x: -1.1415006, y: 1.4695594, z: 0}
+  - {x: -0.7234267, y: 0.6583153, z: 0}
 --- !u!60 &6905770535225707774
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -435,10 +464,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.3280966, y: 3.7028418}
-      - {x: 0.024326205, y: 3.9411426}
-      - {x: -1.0566459, y: 3.77392}
-      - {x: -2.145746, y: 3.2764072}
-      - {x: 0, y: 0}
-      - {x: 2.1441875, y: 3.2525535}
+    - - {x: 1.5519516, y: 3.3231807}
+      - {x: 1.0762019, y: 3.786194}
+      - {x: 0.054495096, y: 4.1371756}
+      - {x: -1.0473547, y: 3.898243}
+      - {x: -1.5659264, y: 3.5548377}
+      - {x: -1.7993598, y: 2.6835177}
+      - {x: -1.3153033, y: 0.8230102}
+      - {x: 0.00014294684, y: -0.7886267}
+      - {x: 1.2200273, y: 0.8095201}
+      - {x: 1.8516568, y: 2.3593557}
   m_UseDelaunayMesh: 0

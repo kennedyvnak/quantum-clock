@@ -23115,7 +23115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3201791619835967309, guid: 2d70ab33a1877089298ffb4818e67ac0, type: 3}
       propertyPath: m_LeverToggled.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3201791619835967309, guid: 2d70ab33a1877089298ffb4818e67ac0, type: 3}
       propertyPath: m_LeverToggled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
