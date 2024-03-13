@@ -13,6 +13,7 @@ namespace QuantumClock {
         [SerializeField] private Transform m_LightTransform, m_PlayerLight;
         [SerializeField] private Animator m_Anim;
         [SerializeField] private QuantumCamera m_QuantumCamera;
+        [SerializeField] private bool m_HasCamera;
 
         [SerializeField] private UnityEvent<bool> m_OnLanternToggle;
 
@@ -34,6 +35,7 @@ namespace QuantumClock {
         private void Awake() {
             rb = GetComponent<Rigidbody2D>();
             _mainCamera = Camera.main;
+            _hasCamera = m_HasCamera;
         }
 
         private void Start() {
