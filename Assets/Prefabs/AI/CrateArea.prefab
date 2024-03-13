@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 477399769822289523}
   m_Layer: 0
-  m_Name: AIArea
+  m_Name: CrateArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2254061277201403459, guid: 775b92587f033d347af7e9d786618f71, type: 3}
       propertyPath: m_InstanceId
-      value: -127930
+      value: -84018
       objectReference: {fileID: 0}
     - target: {fileID: 5685560098418789219, guid: 775b92587f033d347af7e9d786618f71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8812452804561870179, guid: 775b92587f033d347af7e9d786618f71, type: 3}
       propertyPath: m_Name
-      value: FollowerObj
+      value: Crate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

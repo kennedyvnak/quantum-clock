@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Collections;
 
 namespace QuantumClock {
     public class PaperManual : MonoBehaviour {

@@ -17,6 +17,8 @@ namespace QuantumClock {
         protected QuantumObserver _observerFlags { get; private set; } 
 
         public UnityEvent<bool> observerToggled => m_ObserverToggled;
+
+        public bool isObserved { get; protected set; }
         
         protected virtual void Awake() {
             _collider = GetComponent<Collider2D>();
@@ -43,6 +45,7 @@ namespace QuantumClock {
 
         protected virtual void EVENT_ObserverToggled(bool quantumEnabled) {
             m_ObserverToggled.Invoke(quantumEnabled);
+            isObserved = !quantumEnabled;
         }
     }
 }

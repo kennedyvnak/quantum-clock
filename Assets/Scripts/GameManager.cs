@@ -44,9 +44,9 @@ namespace QuantumClock {
             StartCoroutine(GameOverCoroutine());
         }
 
-        public void ChromaticAberration() {
+        public void ChromaticAberration(bool playSound = false) {
             if (_chromaticCoroutine != null) StopCoroutine(_chromaticCoroutine);
-            _chromaticCoroutine = StartCoroutine(ChromaticAberrationCoroutine());
+            _chromaticCoroutine = StartCoroutine(ChromaticAberrationCoroutine(playSound));
         }
 
         private IEnumerator GameOverCoroutine() {
@@ -59,11 +59,11 @@ namespace QuantumClock {
             chromatic.intensity.Override(0.0f);
         }
 
-        private IEnumerator ChromaticAberrationCoroutine() {
+        private IEnumerator ChromaticAberrationCoroutine(bool playSound) {
             if (!m_Volume.profile.TryGet<ChromaticAberration>(out var chromatic)) yield break;
 
             m_ChromaticSound.pitch = Random.Range(m_ChromaticSoundPitchRange.x, m_ChromaticSoundPitchRange.y);
-            m_ChromaticSound.Play();
+            if (playSound) m_ChromaticSound.Play();
 
             chromatic.intensity.Override(1.0f);
             yield return new WaitForSeconds(m_ChromaticDuration);
