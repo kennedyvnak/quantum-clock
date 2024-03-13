@@ -42,7 +42,7 @@ namespace QuantumClock {
                 return;
             }
 
-            if (quantumEnabled && !isBlocking) 
+            if (quantumEnabled && !isBlocking && !m_TransitTo.isObserved) 
                 Transit();
         }
 
