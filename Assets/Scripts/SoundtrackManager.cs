@@ -2,14 +2,21 @@ using UnityEngine;
 
 namespace QuantumClock {
     public class SoundtrackManager : MonoBehaviour {
-        [SerializeField] private AudioClip[] m_Clips;
         [SerializeField] private AudioSource m_Source;
         [SerializeField] private Vector2 m_WaitNextSoundtrackTime;
 
         private float _waitTime;
 
-        private void Start() {
-            Play(m_Clips[Random.Range(0, m_Clips.Length)]);
+        public AudioSource source => m_Source;
+
+        public static SoundtrackManager instance { get; private set; }
+
+        private void Awake() {
+            if (instance) Destroy(gameObject);
+            else {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
         }
 
         public void Play(AudioClip music) {
@@ -21,10 +28,10 @@ namespace QuantumClock {
         }
 
         private void Update() {
-            if (_waitTime <= 0.0f) return;
+            if (_waitTime <= 0.0f || m_Source.isPlaying) return;
 
             _waitTime -= Time.deltaTime;
-            if (_waitTime <= 0.0f) Play(m_Clips[Random.Range(0, m_Clips.Length)]);
+            if (_waitTime <= 0.0f) m_Source.Play();
         }
     }
 }

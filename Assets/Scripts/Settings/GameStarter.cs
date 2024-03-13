@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace QuantumClock {
     public class GameStarter : MonoBehaviour {
         [Header("Game Start")]
-        [SerializeField] private SoundtrackManager m_SoundtrackManager;
+        [SerializeField] private ChangeSoundtrack m_SoundtrackManager;
         [SerializeField] private Button m_StartButton;
         [SerializeField] private Image m_BlackImage;
 

@@ -22,7 +22,6 @@ namespace QuantumClock {
 
 
         private void OnTriggerEnter2D(Collider2D other) {
-            Debug.Log(other.name);
             if (!other.CompareTag("Player") && !other.CompareTag("Entity")) return;
 
             _entered.Add(other);
