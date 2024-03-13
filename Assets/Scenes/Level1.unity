@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!82 &104596980 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2979495545902978472, guid: 5b69fc20735b9a39cb844eb12971a780, type: 3}
-  m_PrefabInstance: {fileID: 2101721605558945457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &288208908 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8386151105531552119, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
@@ -31056,10 +31051,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1771768519832534136, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
-      propertyPath: m_PaperSound
-      value: 
-      objectReference: {fileID: 104596980}
     - target: {fileID: 5221829056045057550, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -31140,38 +31131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6096619612302027055, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6144455497625422358, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1947451023}
-    - target: {fileID: 6334821402873495962, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6334821402873495962, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6334821402873495962, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6334821402873495962, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6334821402873495962, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6334821402873495962, guid: 294571fd19f3726b0a9010a77e5794ec, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

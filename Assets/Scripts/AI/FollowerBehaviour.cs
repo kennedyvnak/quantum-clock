@@ -16,7 +16,6 @@ namespace QuantumClock {
 
         private float _soundDelay;
         private float _followingTime = 0.0f;
-        private bool _gameOver = false;
         private bool _hasTarget;
         private Transform _startPoint;
         private AIDestinationSetter _targetSetter;
