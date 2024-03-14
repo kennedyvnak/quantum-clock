@@ -7,6 +7,8 @@ namespace QuantumClock {
         
         public void Start() {
             var source = SoundtrackManager.instance.source;
+            if (source.clip == m_Clip && source.isPlaying) return;
+
             if (source.isPlaying || m_PlayOnStart) {
                 SoundtrackManager.instance.Play(m_Clip);
             } else {

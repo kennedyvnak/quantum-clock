@@ -15,6 +15,8 @@ namespace QuantumClock {
         [SerializeField] private QuantumCamera m_QuantumCamera;
         [SerializeField] private bool m_HasCamera;
 
+        [SerializeField] private AudioSource m_CameraSnap, m_FootstepWalk, m_LanternOn, m_LanternOff;
+
         [SerializeField] private UnityEvent<bool> m_OnLanternToggle;
 
         public Rigidbody2D rb { get; private set; }
@@ -43,26 +45,18 @@ namespace QuantumClock {
         }
 
         private void Update() {
-            if (_pointer) {
-                Vector3 pdir = _pointer.transform.position - m_LightTransform.transform.position;
-                float pangle = Mathf.Atan2(pdir.y, pdir.x) * Mathf.Rad2Deg;
-                m_LightTransform.localRotation = Quaternion.AngleAxis(pangle - 90.0f, Vector3.forward);
-
-                if (pdir.magnitude > 0.0f) {
-                    m_Anim.SetFloat(s_DirXKey, pdir.x);
-                    m_Anim.SetFloat(s_DirYKey, pdir.y);
-                }
-                return;
-            }
-
-            Vector3 dir = _mainCamera.ScreenToWorldPoint(_mousePos) - m_LightTransform.position;
+            Vector3 dir = (_pointer ? _pointer.transform.position : _mainCamera.ScreenToWorldPoint(_mousePos)) - m_LightTransform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             m_LightTransform.localRotation = Quaternion.AngleAxis(angle - 90.0f, Vector3.forward);
 
             if (dir.magnitude > 0.0f) {
                 m_Anim.SetFloat(s_DirXKey, dir.x);
                 m_Anim.SetFloat(s_DirYKey, dir.y);
-            }
+            } 
+            
+            if (rb.velocity.magnitude > 0.5f) {
+                if (!m_FootstepWalk.isPlaying) m_FootstepWalk.Play();
+            } else m_FootstepWalk.Stop(); 
 
 #if UNITY_EDITOR
             if (Keyboard.current.f6Key.wasPressedThisFrame) {
@@ -81,6 +75,8 @@ namespace QuantumClock {
             m_PlayerLight.gameObject.SetActive(!active);
             _lanternActive = active;
             m_OnLanternToggle.Invoke(active);
+            if (active) m_LanternOn.Play();
+            else m_LanternOff.Play();
         }
 
         public void GetCamera() {
@@ -116,6 +112,7 @@ namespace QuantumClock {
         public void CameraShot(InputAction.CallbackContext ctx) {
             if (!ctx.performed || !_hasCamera) return;
             m_QuantumCamera.TakeShot(_lanternActive);
+            m_CameraSnap.Play();
         } 
         
         public void CameraClear(InputAction.CallbackContext ctx) {

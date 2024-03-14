@@ -12,6 +12,7 @@ namespace QuantumClock {
         public void Teleport() {
             _currentPlayer.transform.position = m_TeleportTo.position;
             _currentPlayer.quantumCamera.vCam.ForceCameraPosition(_currentPlayer.transform.position, Quaternion.identity);
+            GameManager.instance.ChromaticAberration(true);
         }
 
         private void EVENT_LanternToggled(bool lanternEnabled) {

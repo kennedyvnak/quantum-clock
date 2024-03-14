@@ -38,7 +38,7 @@ namespace QuantumClock {
             base.EVENT_ObserverToggled(quantumEnabled);
             if (quantumEnabled && m_ToggleBehaviour) {
                 SetBlocked(!isBlocking);
-                GameManager.instance.ChromaticAberration();
+                GameManager.instance.ChromaticAberration(true);
                 return;
             }
 

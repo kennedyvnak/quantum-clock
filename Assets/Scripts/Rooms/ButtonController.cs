@@ -8,6 +8,9 @@ namespace QuantumClock {
         [SerializeField] private Sprite m_SpriteOn, m_SpriteOff;
 
         [SerializeField] private UnityEvent<bool> m_ButtonToggled;
+        [SerializeField] private UnityEvent m_ButtonOn, m_ButtonOff;
+
+        [SerializeField] private AudioSource m_Audio;
 
         public UnityEvent<bool> buttonToggled => m_ButtonToggled;
 
@@ -16,8 +19,13 @@ namespace QuantumClock {
 
         public void Toggle(bool buttonEnabled) {
             m_Renderer.sprite = buttonEnabled ? m_SpriteOn : m_SpriteOff;
-            m_ButtonToggled.Invoke(buttonEnabled);
             _buttonEnabled = buttonEnabled;
+
+            m_ButtonToggled.Invoke(!buttonEnabled);
+            if (buttonEnabled) m_ButtonOn.Invoke();
+            else m_ButtonOff.Invoke();
+
+            m_Audio.Play();
         }
 
 
