@@ -31,7 +31,7 @@ namespace QuantumClock {
         public void Transit() {
             m_TransitTo.SetBlocked(false);
             SetBlocked(true);
-            GameManager.instance.ChromaticAberration();
+            GameManager.instance.ChromaticAberration(true);
         }
 
         protected override void EVENT_ObserverToggled(bool quantumEnabled) {

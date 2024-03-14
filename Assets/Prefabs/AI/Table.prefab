@@ -224,7 +224,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_Ai: {fileID: 3247770032867139952}
-  m_MinFollowingTimeKill: 1
+  m_MinFollowingTimeKill: 0.6
+  m_MinDistanceKill: 2.5
   m_Target: {fileID: 0}
   m_EmissionSource: {fileID: 4310319835627313002}
   m_EmissionClips:
@@ -344,7 +345,7 @@ MonoBehaviour:
   - {x: 0.55946565, y: -0.68798494, z: 0}
   m_ShapePathHash: 468019028
   m_Mesh: {fileID: 0}
-  m_InstanceId: 100070
+  m_InstanceId: 67410
   m_LocalBounds:
     m_Center: {x: 0.0056976676, y: -0.53248715, z: 0}
     m_Extent: {x: 0.55508137, y: 0.15963387, z: 0}
