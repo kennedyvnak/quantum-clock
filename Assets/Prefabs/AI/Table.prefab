@@ -224,7 +224,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_Ai: {fileID: 3247770032867139952}
-  m_MinFollowingTimeKill: 3
+  m_MinFollowingTimeKill: 1
   m_Target: {fileID: 0}
   m_EmissionSource: {fileID: 4310319835627313002}
   m_EmissionClips:
