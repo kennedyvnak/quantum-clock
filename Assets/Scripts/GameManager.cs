@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace QuantumClock {
     public class GameManager : MonoBehaviour {
@@ -18,7 +19,9 @@ namespace QuantumClock {
         [SerializeField] private Transform m_Pointer;
         [SerializeField] private PlayerInput m_PlayerInput;
         [SerializeField] private float m_GameOverDelay;
-        [SerializeField] private AudioSource m_GameOverSound;
+        [SerializeField] private AudioSource m_GameOverSound, m_DeathSound;
+        [SerializeField] private RawImage m_BlackImage;
+        [SerializeField] private float m_DeathDelay;
 
         public static GameManager instance { get; private set; }
 
@@ -67,6 +70,11 @@ namespace QuantumClock {
 
             chromatic.intensity.Override(1.0f);
             yield return new WaitForSeconds(m_GameOverDelay);
+
+            m_BlackImage.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+            m_DeathSound.Play();
+            yield return new WaitForSeconds(m_DeathDelay);
+
             RestartGame();
         }
 
